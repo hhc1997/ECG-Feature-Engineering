@@ -39,3 +39,13 @@ from sklearn.metrics import precision_recall_fscore_support
 print('加权F1:' + str(f1_score(y_validation, y_pred, average='weighted')))
 # 总共输出4个数组，依次是precision、recall、fscore、support
 print('各标签F1：' + str(precision_recall_fscore_support(y_validation, y_pred, labels=[1, 2, 3, 4, 5, 6, 7, 8, 9])[2]))
+
+
+####特征选择 选择重要性排序前300的
+fea_ = XGC.feature_importances_
+fea_name = data.columns.values.tolist()[1:]
+imp_fea_300 = np.argsort(-fea_ )[:300]
+###第一列是标签 所以要加1
+imp_fea_300 = [i + 1 for i in imp_fea_300]
+imp_fea_300.insert(0,0)
+data_fea_select = data.iloc[0:,imp_fea_300]
