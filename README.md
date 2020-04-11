@@ -10,3 +10,4 @@
 5.challenge2020.get_model.py 用于提取DEEP_FEATURE。
 
 6.特征提取完后运行xgboost_clf.py。
+最后更新于2020/4/11
